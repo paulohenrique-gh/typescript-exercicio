@@ -213,3 +213,34 @@ let objects: object[] = [{ name: "object 1" }, { name: "object 2" }];
 console.log(getFirstElement(words));
 console.log(getFirstElement(numbers));
 console.log(getFirstElement(objects));
+
+// Exercício 12
+class Box<T> {
+    elements: T[] = [];
+
+    add(element: T): void  {
+        this.elements.push(element);
+    }
+
+    getElements(): T[] {
+        return this.elements;
+    }
+}
+
+let strValue: string = "Theater";
+let objValue: object = {name: "Object"};
+
+let numberBox: Box<number> = new Box();
+numberBox.add(44);
+numberBox.add(55);
+console.log(numberBox.getElements());
+
+let stringBox: Box<string> = new Box();
+stringBox.add("Dream");
+stringBox.add("Theater");
+console.log(stringBox.getElements());
+
+let objectBox: Box<object> = new Box();
+objectBox.add({name: "Object 1"});
+objectBox.add({name: "Object 2"});
+console.log(objectBox.getElements());
