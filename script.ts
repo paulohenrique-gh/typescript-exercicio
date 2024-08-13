@@ -382,12 +382,4 @@ async function printValues(): Promise<void> {
 
 printValues();
 
-// Exercício 21
-function appendText(text: string): void {
-  let htmlBody: HTMLElement = document.body;
-  let newDiv: HTMLElement = document.createElement("div");
-  newDiv.innerText = text;
-  htmlBody.appendChild(newDiv);
-}
-
-appendText("This is the new div!!");
+// Exercício 21 e 22 no arquivo script-ex-21-22.ts
