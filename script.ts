@@ -397,26 +397,26 @@ interface Address {
 
 enum Roles {
   USER = "User",
-  ADMIN = "Admin"
+  ADMIN = "Admin",
 }
 
 type User = {
   name: string;
   profession: Profession;
   address?: Address;
-  role: Roles
-}
+  role: Roles;
+};
 
 let profession: Profession = {
   name: "Developer",
-  salary: 5000
-}
+  salary: 5000,
+};
 let address: Address = {
   streetName: "Carpet Street",
-  number: 123
-}
+  number: 123,
+};
 let role: Roles = Roles.USER;
-let user: User = {name: "Peter", profession, address, role};
+let user: User = { name: "Peter", profession, address, role };
 console.log(user.name);
 console.log(user.profession);
 console.log(user.address);
@@ -427,11 +427,11 @@ function getObjectValue<T, K extends keyof T>(object: T, key: K): T[K] {
   return object[key];
 }
 
-const student = {name: "Peter", age: 21}
+const student = { name: "Peter", age: 21 };
 console.log(getObjectValue(student, "age"));
 
 //error TS2345: Argument of type '"lastName"' is not assignable to parameter of type '"name" | "age"'
-// console.log(getObjectValue(student, "lastName")); 
+// console.log(getObjectValue(student, "lastName"));
 
 // Exercício 27
 function getTypeMessage(value: string | number): string {
@@ -467,7 +467,82 @@ function getDocumentNumber(obj: NewPerson | NewCompany): string {
 }
 
 let newPerson: NewPerson = new NewPerson("Carlos", "12345678910");
-let newCompany: NewCompany = new NewCompany("Empresa LTDA", "234908239080001/23")
+let newCompany: NewCompany = new NewCompany(
+  "Empresa LTDA",
+  "234908239080001/23"
+);
 
 console.log(getDocumentNumber(newPerson));
 console.log(getDocumentNumber(newCompany));
+
+// Exercício 29
+interface NewProduct {
+  name: string;
+  price: number;
+  category: string;
+  quantity: number;
+}
+
+function calculateTotalFurniturePrice(products: NewProduct[]): number {
+  return products
+    .filter((product) => product.category === "Furniture")
+    .reduce((acc, cur) => acc + cur.price * cur.quantity, 0);
+}
+
+let products3: NewProduct[] = [
+  {
+    name: "Product 1",
+    price: 1014,
+    category: "Furniture",
+    quantity: 23,
+  },
+  {
+    name: "Product 2",
+    price: 871,
+    category: "Furniture",
+    quantity: 12,
+  },
+  {
+    name: "Product 3",
+    price: 939,
+    category: "Electronic",
+    quantity: 3,
+  },
+];
+
+console.log(calculateTotalFurniturePrice(products3));
+
+// Exercício 30
+function findProductsByCategory(products: NewProduct[], category: string): NewProduct[] {
+  let newList: NewProduct[] = products.reduce((filteredList, curProduct) => {
+    if (curProduct.category === category) {
+      filteredList.push(curProduct);
+    }
+    return filteredList;
+  }, [] as NewProduct[]);
+
+  return newList;
+}
+
+let products4: NewProduct[] = [
+  {
+    name: "Product 1",
+    price: 1014,
+    category: "Furniture",
+    quantity: 23,
+  },
+  {
+    name: "Product 2",
+    price: 871,
+    category: "Furniture",
+    quantity: 12,
+  },
+  {
+    name: "Product 3",
+    price: 939,
+    category: "Electronic",
+    quantity: 3,
+  },
+];
+
+console.log(findProductsByCategory(products4, "Furniture"));
