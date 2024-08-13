@@ -257,7 +257,7 @@ function calculateDistance(coordinates: Coordinates): number {
 console.log(calculateDistance([4, -4]));
 
 // Exercício 14
-enum Day {
+enum Days {
   MONDAY,
   TUESDAY,
   WEDNESDAY,
@@ -267,13 +267,13 @@ enum Day {
   SUNDAY
 }
 
-function weekdayOrWeekend(day: Day): string {
-  if (day === Day.SATURDAY || day === Day.SUNDAY) {
+function weekdayOrWeekend(day: Days): string {
+  if (day === Days.SATURDAY || day === Days.SUNDAY) {
       return "weekend";
   }
 
   return "weekday";
 }
 
-console.log(weekdayOrWeekend(Day.TUESDAY));
-console.log(weekdayOrWeekend(Day.SUNDAY));
+console.log(weekdayOrWeekend(Days.TUESDAY));
+console.log(weekdayOrWeekend(Days.SUNDAY));
