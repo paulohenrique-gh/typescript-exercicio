@@ -337,16 +337,16 @@ function countVowels(str: string) {
 console.log(countVowels("once upon a time"));
 
 // Exercício 19
-async function getData(): Promise<string> {
+function getData(): Promise<string> {
   return new Promise((resolve, reject) =>
     setTimeout(() => {
-      if (Math.random() > 0.5) return resolve("Ok!");
-      return reject("Fail!");
-    }, 3000)
+      if (Math.random() > 0.5) return resolve("Exercise 19: Ok!");
+      return reject("Exercise 19: Fail!");
+    }, 500)
   );
 }
 
-async function printResult() {
+async function printResult(): Promise<void> {
   try {
     console.log(await getData());
   } catch (e) {
@@ -357,3 +357,27 @@ async function printResult() {
 printResult();
 
 // Exercício 20
+let promise1: Promise<string> = new Promise((resolve) =>
+  setTimeout(() => resolve("Exercise 20, promise 1 resolved"), 300)
+);
+let promise2: Promise<string> = new Promise((resolve) =>
+  setTimeout(() => resolve("Exercise 20, promise 2 resolved"), 400)
+);
+
+interface PromiseResult {
+  results: string[];
+}
+
+let values: Promise<PromiseResult> = Promise.all([promise1, promise2]).then(
+  (results) => ({ results })
+);
+
+async function printValues(): Promise<void> {
+  try {
+    console.log(await values);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+printValues();
