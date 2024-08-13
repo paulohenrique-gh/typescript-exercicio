@@ -286,3 +286,28 @@ function getMinAndMaxNumbers(numbers: number[]): [number, number] {
 }
 
 console.log(getMinAndMaxNumbers([43, 84, 3, 99, 300, 78]));
+
+// Exercício 16
+function filterProductsByPrice(products: Product[], minPrice: number): Product[] {
+  return products.filter(product => product.price > minPrice);
+}
+
+let products2: Product[] = [
+  {
+    name: "Product 1",
+    price: 1014,
+    category: "Furniture"
+  },
+  {
+    name: "Product 2",
+    price: 871,
+    category: "Furniture"
+  },
+  {
+    name: "Product 3",
+    price: 939,
+    category: "Furniture"
+  }
+];
+
+console.log(filterProductsByPrice(products2, 900));
