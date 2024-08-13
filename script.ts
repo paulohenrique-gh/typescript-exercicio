@@ -244,3 +244,14 @@ let objectBox: Box<object> = new Box();
 objectBox.add({name: "Object 1"});
 objectBox.add({name: "Object 2"});
 console.log(objectBox.getElements());
+
+// Exercício 13
+type Coordinates = [number, number];
+
+function calculateDistance(coordinates: Coordinates): number {
+  let [x, y] = coordinates;
+  let result = Math.sqrt(x * x + y * y);
+  return result;
+}
+
+console.log(calculateDistance([4, -4]));
