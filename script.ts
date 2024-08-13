@@ -434,9 +434,40 @@ console.log(getObjectValue(student, "age"));
 // console.log(getObjectValue(student, "lastName")); 
 
 // Exercício 27
-function getTypeMessage(value: string | number) {
+function getTypeMessage(value: string | number): string {
   return typeof value === "string" ? "It's a string" : "It's a number";
 }
 
 console.log(getTypeMessage("ABCD"));
 console.log(getTypeMessage(123));
+
+// Exercício 28
+class NewPerson {
+  name: string;
+  cpf: string;
+
+  constructor(name: string, cpf: string) {
+    this.name = name;
+    this.cpf = cpf;
+  }
+}
+
+class NewCompany {
+  name: string;
+  cnpj: string;
+
+  constructor(name: string, cnpj: string) {
+    this.name = name;
+    this.cnpj = cnpj;
+  }
+}
+
+function getDocumentNumber(obj: NewPerson | NewCompany): string {
+  return obj instanceof NewPerson ? `CPF: ${obj.cpf}` : `CNPJ: ${obj.cnpj}`;
+}
+
+let newPerson: NewPerson = new NewPerson("Carlos", "12345678910");
+let newCompany: NewCompany = new NewCompany("Empresa LTDA", "234908239080001/23")
+
+console.log(getDocumentNumber(newPerson));
+console.log(getDocumentNumber(newCompany));
