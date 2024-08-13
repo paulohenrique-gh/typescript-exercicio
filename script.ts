@@ -313,8 +313,22 @@ let products2: Product[] = [
 console.log(filterProductsByPrice(products2, 900));
 
 // Exercício 17
-function reverseString(str: string): string {
+function reverseWordOrder(str: string): string {
   return str.split(" ").reverse().join(" ");
 }
 
-console.log(reverseString("train of thought is a great album"));
+console.log(reverseWordOrder("train of thought is a great album"));
+
+// Exercício 18
+function countVowels(str: string) {
+  const vowels = ["a", "e", "i", "o", "u"];
+
+  return str.split("").reduce((acc, cur) => {
+    if (vowels.includes(cur)) {
+      return acc + 1;
+    }
+    return acc;
+  }, 0);
+}
+
+console.log(countVowels("once upon a time"));
