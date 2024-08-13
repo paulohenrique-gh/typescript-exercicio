@@ -311,3 +311,10 @@ let products2: Product[] = [
 ];
 
 console.log(filterProductsByPrice(products2, 900));
+
+// Exercício 17
+function reverseString(str: string): string {
+  return str.split(" ").reverse().join(" ");
+}
+
+console.log(reverseString("train of thought is a great album"));
