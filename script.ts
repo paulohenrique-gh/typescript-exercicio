@@ -332,3 +332,30 @@ function countVowels(str: string) {
 }
 
 console.log(countVowels("once upon a time"));
+
+// Exercício 19
+function getPromise(): Promise<string> {
+  return new Promise((resolve, reject) => setTimeout(() => {
+    if (Math.random() > 0.5) return resolve("Ok!");
+    return reject("Fail!");
+  }, 3000))
+}
+
+async function getData(): Promise<string> {
+  try {
+    const result = await getPromise();
+    return result;
+  } catch (e) {
+    throw e;
+  }
+}
+
+async function printResult() {
+  try {
+    console.log(await getData());
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+printResult();
