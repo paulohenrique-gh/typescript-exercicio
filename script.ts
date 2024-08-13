@@ -383,3 +383,52 @@ async function printValues(): Promise<void> {
 printValues();
 
 // Exercício 21 e 22 no arquivo script-ex-21-22.ts
+
+// Exercício 23
+interface Profession {
+  name: string;
+  salary: number;
+}
+
+interface Address {
+  streetName: string;
+  number: number;
+}
+
+enum Roles {
+  USER = "User",
+  ADMIN = "Admin"
+}
+
+type User = {
+  name: string;
+  profession: Profession;
+  address?: Address;
+  role: Roles
+}
+
+let profession: Profession = {
+  name: "Developer",
+  salary: 5000
+}
+let address: Address = {
+  streetName: "Carpet Street",
+  number: 123
+}
+let role: Roles = Roles.USER;
+let user: User = {name: "Peter", profession, address, role};
+console.log(user.name);
+console.log(user.profession);
+console.log(user.address);
+console.log(user.role);
+
+// Exercício 26
+function getObjectValue<T, K extends keyof T>(object: T, key: K): T[K] {
+  return object[key];
+}
+
+const student = {name: "Peter", age: 21}
+console.log(getObjectValue(student, "age"));
+
+//error TS2345: Argument of type '"lastName"' is not assignable to parameter of type '"name" | "age"'
+// console.log(getObjectValue(student, "lastName")); 
