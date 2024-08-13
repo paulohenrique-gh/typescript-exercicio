@@ -69,9 +69,9 @@ em seguida, combine os resultados em um único objeto. Use Promise.all para exec
 as chamadas em paralelo.
 ## 11. Manipulação de DOM (se aplicável)
 - Exercício 21: Crie uma função que manipule o DOM, adicionando um novo elemento
-<div> com texto dinâmico a um elemento <body> já existente. O texto deve ser
+`<div>` com texto dinâmico a um elemento `<body>` já existente. O texto deve ser
 passado como parâmetro.
-- Exercício 22: Crie uma função que adicione uma lista de itens (<li>) a uma <ul>
+- Exercício 22: Crie uma função que adicione uma lista de itens (`<li>`) a uma <`ul`>
 existente no DOM. Os itens da lista devem ser passados como um array de strings.
 
 ## 12. Tipos Avançados
