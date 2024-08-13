@@ -216,19 +216,19 @@ console.log(getFirstElement(objects));
 
 // Exercício 12
 class Box<T> {
-    elements: T[] = [];
+  elements: T[] = [];
 
-    add(element: T): void  {
-        this.elements.push(element);
-    }
+  add(element: T): void {
+    this.elements.push(element);
+  }
 
-    getElements(): T[] {
-        return this.elements;
-    }
+  getElements(): T[] {
+    return this.elements;
+  }
 }
 
 let strValue: string = "Theater";
-let objValue: object = {name: "Object"};
+let objValue: object = { name: "Object" };
 
 let numberBox: Box<number> = new Box();
 numberBox.add(44);
@@ -241,8 +241,8 @@ stringBox.add("Theater");
 console.log(stringBox.getElements());
 
 let objectBox: Box<object> = new Box();
-objectBox.add({name: "Object 1"});
-objectBox.add({name: "Object 2"});
+objectBox.add({ name: "Object 1" });
+objectBox.add({ name: "Object 2" });
 console.log(objectBox.getElements());
 
 // Exercício 13
@@ -264,12 +264,12 @@ enum Days {
   THURSDAY,
   FRIDAY,
   SATURDAY,
-  SUNDAY
+  SUNDAY,
 }
 
 function weekdayOrWeekend(day: Days): string {
   if (day === Days.SATURDAY || day === Days.SUNDAY) {
-      return "weekend";
+    return "weekend";
   }
 
   return "weekday";
@@ -288,26 +288,29 @@ function getMinAndMaxNumbers(numbers: number[]): [number, number] {
 console.log(getMinAndMaxNumbers([43, 84, 3, 99, 300, 78]));
 
 // Exercício 16
-function filterProductsByPrice(products: Product[], minPrice: number): Product[] {
-  return products.filter(product => product.price > minPrice);
+function filterProductsByPrice(
+  products: Product[],
+  minPrice: number
+): Product[] {
+  return products.filter((product) => product.price > minPrice);
 }
 
 let products2: Product[] = [
   {
     name: "Product 1",
     price: 1014,
-    category: "Furniture"
+    category: "Furniture",
   },
   {
     name: "Product 2",
     price: 871,
-    category: "Furniture"
+    category: "Furniture",
   },
   {
     name: "Product 3",
     price: 939,
-    category: "Furniture"
-  }
+    category: "Furniture",
+  },
 ];
 
 console.log(filterProductsByPrice(products2, 900));
@@ -334,20 +337,13 @@ function countVowels(str: string) {
 console.log(countVowels("once upon a time"));
 
 // Exercício 19
-function getPromise(): Promise<string> {
-  return new Promise((resolve, reject) => setTimeout(() => {
-    if (Math.random() > 0.5) return resolve("Ok!");
-    return reject("Fail!");
-  }, 3000))
-}
-
 async function getData(): Promise<string> {
-  try {
-    const result = await getPromise();
-    return result;
-  } catch (e) {
-    throw e;
-  }
+  return new Promise((resolve, reject) =>
+    setTimeout(() => {
+      if (Math.random() > 0.5) return resolve("Ok!");
+      return reject("Fail!");
+    }, 3000)
+  );
 }
 
 async function printResult() {
@@ -359,3 +355,5 @@ async function printResult() {
 }
 
 printResult();
+
+// Exercício 20
