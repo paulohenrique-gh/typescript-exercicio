@@ -384,7 +384,7 @@ printValues();
 
 // Exercício 21 e 22 no arquivo script-ex-21-22.ts
 
-// Exercício 23
+// Exercício 25
 interface Profession {
   name: string;
   salary: number;
@@ -432,3 +432,11 @@ console.log(getObjectValue(student, "age"));
 
 //error TS2345: Argument of type '"lastName"' is not assignable to parameter of type '"name" | "age"'
 // console.log(getObjectValue(student, "lastName")); 
+
+// Exercício 27
+function getTypeMessage(value: string | number) {
+  return typeof value === "string" ? "It's a string" : "It's a number";
+}
+
+console.log(getTypeMessage("ABCD"));
+console.log(getTypeMessage(123));
