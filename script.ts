@@ -139,21 +139,21 @@ console.log(Car.getCarCount());
 
 // Exercício 9
 class Animal {
-    makeSound(): string {
-        return "The animal makes a sound";
-    }
+  makeSound(): string {
+    return "The animal makes a sound";
+  }
 }
 
 class Dog extends Animal {
-    makeSound(): string {
-        return "The dog barks";
-    }
+  makeSound(): string {
+    return "The dog barks";
+  }
 }
 
 class Cat extends Animal {
-    makeSound(): string{
-        return "The cat meows";
-    }
+  makeSound(): string {
+    return "The cat meows";
+  }
 }
 
 let myAnimal: Animal = new Animal();
@@ -166,29 +166,29 @@ console.log(myCat.makeSound());
 
 // Exercício 10
 class Employee {
-    name: string;
-    annualSalary: number;
+  name: string;
+  annualSalary: number;
 
-    constructor(name: string, annualSalary: number) {
-        this.name = name;
-        this.annualSalary = annualSalary;
-    }
+  constructor(name: string, annualSalary: number) {
+    this.name = name;
+    this.annualSalary = annualSalary;
+  }
 
-    calculateSalary(): number {
-        return this.annualSalary;
-    }
+  calculateSalary(): number {
+    return this.annualSalary;
+  }
 }
 
 class HourlyPaidEmployee extends Employee {
-    calculateSalary(): number {
-       return this.annualSalary / 12 / 22 / 8;
-    }
+  calculateSalary(): number {
+    return this.annualSalary / 12 / 22 / 8;
+  }
 }
 
 class MonthlyPaidEmployee extends Employee {
-    calculateSalary(): number {
-        return this.annualSalary / 12;
-    }
+  calculateSalary(): number {
+    return this.annualSalary / 12;
+  }
 }
 
 let paidAnnualy: Employee = new Employee("Tadeu", 50000);
@@ -197,3 +197,19 @@ let paidMonthly: Employee = new MonthlyPaidEmployee("Rubens", 60000);
 console.log(paidAnnualy.calculateSalary());
 console.log(paidHourly.calculateSalary());
 console.log(paidMonthly.calculateSalary());
+
+// Exercício 11
+function getFirstElement<T>(elements: T[]): T | undefined {
+  if (elements.length) {
+    return elements[0];
+  }
+  return undefined;
+}
+
+let words: string[] = ["big", "bang", "combo"];
+let numbers: number[] = [2, 43, 89];
+let objects: object[] = [{ name: "object 1" }, { name: "object 2" }];
+
+console.log(getFirstElement(words));
+console.log(getFirstElement(numbers));
+console.log(getFirstElement(objects));
