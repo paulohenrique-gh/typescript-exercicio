@@ -277,3 +277,12 @@ function weekdayOrWeekend(day: Days): string {
 
 console.log(weekdayOrWeekend(Days.TUESDAY));
 console.log(weekdayOrWeekend(Days.SUNDAY));
+
+// Exercício 15
+function getMinAndMaxNumbers(numbers: number[]): [number, number] {
+  let min = Math.min(...numbers);
+  let max = Math.max(...numbers);
+  return [min, max];
+}
+
+console.log(getMinAndMaxNumbers([43, 84, 3, 99, 300, 78]));
